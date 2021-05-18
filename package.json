@@ -1,6 +1,6 @@
 {
   "name": "gitversion-patcher",
-  "version": "0.1.0+0",
+  "version": "0.2.0",
   "description": "Tool for patching package.json file with version from gitversion",
   "main": "index.js",
   "bin": {
@@ -10,7 +10,8 @@
     "dist"
   ],
   "scripts": {
-    "prepack": "tsc"
+    "setShebang": "ts-node shebangify.ts",
+    "prepack": "tsc && npm run setShebang"
   },
   "keywords": [
     "gitversion",
@@ -24,6 +25,7 @@
     "@types/node": "^15.3.0",
     "prettier": "^2.3.0",
     "simple-git-hooks": "^2.4.1",
+    "ts-node": "^9.1.1",
     "typescript": "4.2.4"
   }
 }
