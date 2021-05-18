@@ -7,6 +7,10 @@ Simple, lightweight no-dependency tool for patching package.json file with gitve
 If you (just like me) for some reasons don't want or can't to use version settings via `lerna` or `npm version` perhaps
 could find that simple package useful.
 
+## Installation
+
+`yarn add gitversion-patcher`
+
 ## Usage
 
 This package should be used as a cli utility and could be executed as a `yarn prepack` hook, or
