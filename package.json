@@ -1,0 +1,32 @@
+{
+  "name": "gitversion-patcher",
+  "version": "0.1.0+0",
+  "description": "Tool for patching package.json file with version from gitversion",
+  "main": "index.js",
+  "bin": {
+    "gitversion-patcher": "dist/index.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "prepack": "tsc"
+  },
+  "keywords": [
+    "gitversion",
+    "version",
+    "package",
+    "versioning"
+  ],
+  "author": "genrikhfetischev@gmail.com",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^15.3.0",
+    "prettier": "^2.3.0",
+    "simple-git-hooks": "^2.4.1",
+    "typescript": "4.2.4"
+  },
+  "simple-git-hooks": {
+    "pre-commit": "tsc --noEmit"
+  }
+}
