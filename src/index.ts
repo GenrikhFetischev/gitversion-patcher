@@ -16,6 +16,8 @@ import { execShellCommand } from "./execShellCommand";
   let gitversionOut: { [key: string]: string };
   let packageJsonContent: { [key: string]: string };
 
+  let fullSemVer: string = "";
+
   const pathToPackageJson = resolve("./package.json");
 
   try {
@@ -29,15 +31,24 @@ import { execShellCommand } from "./execShellCommand";
 
   try {
     gitversionOut = JSON.parse(tryToCallGitVersion.stdout[0]);
+    fullSemVer = gitversionOut.FullSemVer;
   } catch (e) {
     console.error("\x1b[31m", "Error while parsing gitversion result");
     console.error(tryToCallGitVersion.stdout[0]);
     console.log(tryToCallGitVersion.stdout);
-    throw e;
-
   }
 
-  packageJsonContent.version = gitversionOut.FullSemVer;
+  console.log("Try to get FullSemVer via regexp");
+  const match = tryToCallGitVersion.stdout[0].match(
+    /FullSemVer.+(\d.\d.\d.+)"/
+  );
+  fullSemVer = match[1] ? match[1] : undefined;
+
+  if (!fullSemVer) {
+    throw Error("can't parse full semver via regexp");
+  }
+
+  packageJsonContent.version = fullSemVer;
 
   writeFileSync(pathToPackageJson, JSON.stringify(packageJsonContent, null, 2));
   console.log("\x1b[32m", "Done! 🎾");
