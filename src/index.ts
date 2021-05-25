@@ -31,7 +31,10 @@ import { execShellCommand } from "./execShellCommand";
     gitversionOut = JSON.parse(tryToCallGitVersion.stdout[0]);
   } catch (e) {
     console.error("\x1b[31m", "Error while parsing gitversion result");
+    console.error(tryToCallGitVersion.stdout[0]);
+    console.log(tryToCallGitVersion.stdout);
     throw e;
+
   }
 
   packageJsonContent.version = gitversionOut.FullSemVer;
