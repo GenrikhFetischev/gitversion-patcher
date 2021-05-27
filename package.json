@@ -1,6 +1,6 @@
 {
   "name": "gitversion-patcher",
-  "version": "1.0.5",
+  "version": "1.0.1+7",
   "description": "Tool for patching package.json file with version from gitversion",
   "main": "index.js",
   "bin": {
@@ -23,7 +23,7 @@
   "license": "ISC",
   "devDependencies": {
     "@types/node": "^15.3.0",
-    "gitversion-patcher": "0.2.0",
+    "gitversion-patcher": "1.0.5",
     "prettier": "^2.3.0",
     "simple-git-hooks": "^2.4.1",
     "ts-node": "^9.1.1",
