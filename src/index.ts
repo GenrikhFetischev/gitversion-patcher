@@ -30,12 +30,12 @@ import { execShellCommand } from "./execShellCommand";
   }
 
   try {
-    gitversionOut = JSON.parse(tryToCallGitVersion.stdout[0]);
+    gitversionOut = JSON.parse(
+      tryToCallGitVersion.stdout.reduce((acc, item) => acc + item)
+    );
     fullSemVer = gitversionOut.FullSemVer;
   } catch (e) {
     console.error("\x1b[31m", "Error while parsing gitversion result");
-    console.error(tryToCallGitVersion.stdout[0]);
-    console.log(tryToCallGitVersion.stdout);
   }
 
   console.log("Try to get FullSemVer via regexp");
