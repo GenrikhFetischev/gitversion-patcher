@@ -41,7 +41,7 @@ import { execShellCommand } from "./execShellCommand";
   console.log("Try to get FullSemVer via regexp");
   const match = tryToCallGitVersion.stdout
     .join("")
-    .match(/FullSemVer.+(\d.\d.\d.+)"/);
+    .match(/FullSemVer.+(\d+\.\d+\.\d+)/);
 
   fullSemVer = match[1] ? match[1] : undefined;
 
