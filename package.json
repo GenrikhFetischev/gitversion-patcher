@@ -1,6 +1,6 @@
 {
   "name": "gitversion-patcher",
-  "version": "1.1.0",
+  "version": "1.0.1",
   "description": "Tool for patching package.json file with version from gitversion",
   "main": "index.js",
   "bin": {
